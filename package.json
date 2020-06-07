@@ -32,7 +32,7 @@
     "react": "*"
   },
   "dependencies": {
-    "hoist-non-react-statics": "^3.2.1",
+    "hoist-non-react-statics": "^3.3.2",
     "react-ga": "^2.5.6"
   }
 }
