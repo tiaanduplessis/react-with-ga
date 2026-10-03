@@ -10,6 +10,7 @@
   "source": "src/index.js",
   "license": "MIT",
   "scripts": {
+    "test": "node test/index.js",
     "lint": "eslint --fix src",
     "build": "microbundle -o dist/ --sourcemap false --compress false --jsx React.createElement",
     "dev": "microbundle watch -o dist/ --sourcemap false --compress false --jsx React.createElement"
@@ -26,13 +27,14 @@
     "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "microbundle": "^0.8.3"
+    "microbundle": "^0.8.3",
+    "react": "16.14.0"
   },
   "peerDependencies": {
     "react": "*"
   },
   "dependencies": {
-    "hoist-non-react-statics": "^3.2.1",
+    "hoist-non-react-statics": "^3.3.2",
     "react-ga": "^2.5.6"
   }
 }
