@@ -62,12 +62,31 @@ const App = withGA(Temp);
 ReactDOM.render(<App />, rootElement);
 ```
 
+The minimum `react-ga` version is 2.7.0. Its API is available through the injected
+`ga` prop, including named-tracker plugin requirements and `testModeAPI.resetCalls`.
+Initialization options passed through `withGA` or `withGA.setConfig` can use
+`standardImplementation: true` together with `useExistingGa: true` to reuse an
+already configured `window.ga` without loading another analytics script or
+creating another tracker.
+
+ReactGA 2.7.0 redacts every string label containing `@`, including a lone or
+trailing `@`. This is broader than the previous locked version's email-pattern
+matching.
+
 ## Contribute
 
 1. Fork it and create your feature branch: `git checkout -b my-new-feature`
 2. Commit your changes: `git commit -am "Add some feature"`
 3. Push to the branch: `git push origin my-new-feature`
 4. Submit a pull request
+
+`npm test` retains the component/static-hoisting checks. `npm run test:analytics`
+checks the actual ReactGA API using synthetic locations, inert browser providers
+and owned call recorders; it cannot load analytics scripts or send network traffic.
+The focused analytics suite requires Node 16 or newer and accepts
+`-- --dependency-root /path/to/isolated-install --root /path/to/package` for an
+isolated runtime or an extracted npm package. These checks do not run the legacy
+lint or build toolchain.
 
 ## License
 
